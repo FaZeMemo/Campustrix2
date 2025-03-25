@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
    public function __invoke(){
-         return view("welcome");//'Pagina Principal de un Controlador';
+       $roles = DB::select("SELECT * FROM roles");
+       dd($roles);
+         //return view("welcome");//'Pagina Principal de un Controlador';
      }
 }

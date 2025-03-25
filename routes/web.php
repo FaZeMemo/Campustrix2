@@ -10,7 +10,7 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\MovimientoController;
 use App\Http\Controllers\RegisterController;
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', HomeController::class);
 
 Route::get('/podcast/{parametro1}/{parametro2?}', [PodcastController::class, 'podcast']);
 
@@ -44,9 +44,9 @@ Route::prefix('/movimientos')->group(function () {
 });
 
 Route::prefix('/register')->group(function () {
-    Route::get('/', [RegisterController::class, 'create'])->name('register.create');
-    Route::post('/', [RegisterController::class, 'store'])->name('register.store');
-    Route::get('/{user}', [RegisterController::class, 'show'])->name('register.show');
+    /*paso 1*/Route::get('/', [RegisterController::class, 'create'])->name('register.create');
+    /*paso 2*/Route::post('/', [RegisterController::class, 'store'])->name('register.store');
+    /*paso 3*/Route::get('/{user}', [RegisterController::class, 'show'])->name('register.show');
     Route::get('/{user}/edit', [RegisterController::class, 'edit'])->name('register.edit');
     Route::put('/{user}', [RegisterController::class, 'update'])->name('register.update');
     Route::delete('/{user}', [RegisterController::class, 'destroy'])->name('register.destroy');
